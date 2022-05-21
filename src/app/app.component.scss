@@ -1,0 +1,19 @@
+.example-container {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+ // display: flex;
+  height: 100%;
+  margin: 10px;
+ // align-items: center;
+ // justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+app-cart, app-item-list {
+  margin: 10%;
+}
