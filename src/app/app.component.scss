@@ -1,18 +1,25 @@
-.example-container {
-  border: 1px solid rgba(0, 0, 0, 0.5);
+
+mat-drawer {
+  min-width: 400px;
+  padding: 0 20px;
+  background-color: whitesmoke;
 }
 
-.example-sidenav-content {
- // display: flex;
-  height: 100%;
-  margin: 10px;
- // align-items: center;
- // justify-content: center;
+.sidenav-content {
+  margin: 0 10px 0 10px;
 }
 
-.example-sidenav {
-  padding: 20px;
-}
+//.example-sidenav-content {
+// // display: flex;
+//  height: 100%;
+//  margin: 10px;
+// // align-items: center;
+// // justify-content: center;
+//}
+//
+//.example-sidenav {
+//  padding: 20px;
+//}
 
 app-cart, app-item-list {
   margin: 10%;

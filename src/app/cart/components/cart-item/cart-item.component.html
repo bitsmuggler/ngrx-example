@@ -1,16 +1,22 @@
 <mat-card>
   <mat-card-content>
-    <span>{{cartItem?.item?.name}}</span>
-    <span>à {{cartItem?.item?.price | currency}}</span>
-    <input matInput type="number" [valueAsNumber]="cartItem?.numberOfItems">
-    <button mat-icon-button>
-      <mat-icon>add</mat-icon>
-    </button>
-    <button mat-icon-button (click)="reduceItemFromCart()">
-      <mat-icon>remove</mat-icon>
-    </button>
-    <button mat-icon-button (click)="removeItemFromCart()">
-      <mat-icon>delete</mat-icon>
-    </button>
+      <div class="item-description">
+        <span class="number-of-items">{{cartItem?.numberOfItems}} x</span>
+        <span class="name">{{cartItem?.item?.name}}</span>
+        <span class="price">à {{cartItem?.item?.price | currency}}</span>
+        <div class="actions">
+          <button mat-icon-button>
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-icon-button (click)="reduceItemFromCart()">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <button mat-icon-button (click)="removeItemFromCart()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <span class="total-price">{{cartItem?.totalPrice | currency}}</span>
   </mat-card-content>
+
 </mat-card>
