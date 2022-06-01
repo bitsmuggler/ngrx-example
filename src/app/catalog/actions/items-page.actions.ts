@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {Item} from "../model/items.model";
+import {Item} from "../model/catalog.model";
 
 export const getItems = createAction(
   '[Items List] Get items');

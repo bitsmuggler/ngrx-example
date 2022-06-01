@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ItemListComponent } from './containers/item-list/item-list.component';
+import { CatalogPageComponent } from './containers/catalog-page/catalog-page.component';
 import {EffectsModule} from "@ngrx/effects";
-import {ItemsEffect} from "./effects/items.effect";
+import {CatalogEffect} from "./effects/catalog.effect";
 import {StoreModule} from "@ngrx/store";
-import {itemsReducer} from "./reducers/items.reducer";
+import {catalogReducer} from "./reducers/catalog.reducer";
 import {HttpClientModule} from "@angular/common/http";
 import {MatListModule} from "@angular/material/list";
 import {BrowserModule} from "@angular/platform-browser";
@@ -15,16 +15,16 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
-    ItemListComponent,
+    CatalogPageComponent,
     ItemComponent
   ],
   exports: [
-    ItemListComponent
+    CatalogPageComponent
   ],
   imports: [
     CommonModule,
-    StoreModule.forFeature('itemsFeature', itemsReducer),
-    EffectsModule.forFeature([ItemsEffect]),
+    StoreModule.forFeature('itemsFeature', catalogReducer),
+    EffectsModule.forFeature([CatalogEffect]),
     HttpClientModule,
     MatListModule,
     BrowserModule,
@@ -34,4 +34,4 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     BrowserAnimationsModule,
   ]
 })
-export class ItemsModule { }
+export class CatalogModule { }

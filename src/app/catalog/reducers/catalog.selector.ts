@@ -1,5 +1,5 @@
 import {createSelector} from '@ngrx/store';
-import {Item} from "../model/items.model";
+import {Item} from "../model/catalog.model";
 
 export interface ItemsFeatureState {
   items: Item[]

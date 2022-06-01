@@ -1,4 +1,4 @@
-import {Item} from "../../items/model/items.model";
+import {Item} from "../../catalog/model/catalog.model";
 
 export interface CartItem {
   id: string;

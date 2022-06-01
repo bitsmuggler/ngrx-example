@@ -1,4 +1,4 @@
-<h1>Items ✨</h1>
+<h1>Catalog ✨</h1>
 <ng-container *ngIf="items$ | async as items">
    <app-item *ngFor="let item of items" [item]="item" (addToCartEventEmitter)="addItemToCart($event)"></app-item>
 </ng-container>

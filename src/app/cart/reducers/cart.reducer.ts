@@ -1,7 +1,7 @@
 import {createReducer, on} from '@ngrx/store';
 import {CartFeatureState} from "./cart.selector";
 import {v4 as uuidv4} from 'uuid';
-import {addToCart} from "../../items/actions/items-page.actions";
+import {addToCart} from "../../catalog/actions/items-page.actions";
 import {CartItem} from "../model/cart-item.model";
 import {increaseItemInCart, reduceItemFromCart, removeFromCart} from "../actions/cart-page.actions";
 

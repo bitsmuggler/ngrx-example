@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {addToCart, getItems} from "../../actions/items-page.actions";
-import {ItemsFeatureState, selectItems} from "../../reducers/items.selector";
-import {Item} from "../../model/items.model";
+import {ItemsFeatureState, selectItems} from "../../reducers/catalog.selector";
+import {Item} from "../../model/catalog.model";
 
 @Component({
   selector: 'app-item-list',
-  templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.scss']
+  templateUrl: './catalog-page.component.html',
+  styleUrls: ['./catalog-page.component.scss']
 })
-export class ItemListComponent implements OnInit {
+export class CatalogPageComponent implements OnInit {
 
   items$ = this.store.select(selectItems);
 
