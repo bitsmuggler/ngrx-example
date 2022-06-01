@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {CartFeatureState, selectCartItems} from "../../reducers/cart.selector";
+import {Component} from '@angular/core';
+import {CartFeatureState, selectCartItems, selectCartTotalPrice} from "../../reducers/cart.selector";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {CartItem} from "../../model/cart-item.model";
@@ -12,22 +12,24 @@ import {increaseItemInCart, reduceItemFromCart, removeFromCart} from "../../acti
 })
 export class CartComponent {
   cartItems$: Observable<CartItem[]>;
+  totalPrice$: Observable<number>;
 
   id = 'id';
+
   constructor(private store: Store<CartFeatureState>) {
     this.cartItems$ = this.store.select(selectCartItems);
+    this.totalPrice$ = this.store.select(selectCartTotalPrice);
   }
 
-  reduceItem(item: CartItem) {
-    console.log('dispatch');
-    this.store.dispatch(reduceItemFromCart({cartItem: item}))
+  reduceItem(cartItem: CartItem) {
+    this.store.dispatch(reduceItemFromCart({cartItem}))
   }
 
-  removeItem(item: CartItem) {
-    this.store.dispatch(removeFromCart({cartItem: item}));
+  removeItem(cartItem: CartItem) {
+    this.store.dispatch(removeFromCart({cartItem}));
   }
 
-  increaseItem(item: CartItem) {
-    this.store.dispatch(increaseItemInCart({cartItem: item}));
+  increaseItem(cartItem: CartItem) {
+    this.store.dispatch(increaseItemInCart({cartItem}));
   }
 }

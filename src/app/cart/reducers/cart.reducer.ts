@@ -3,11 +3,16 @@ import {CartFeatureState} from "./cart.selector";
 import {v4 as uuidv4} from 'uuid';
 import {addToCart} from "../../items/actions/items-page.actions";
 import {CartItem} from "../model/cart-item.model";
-import {increaseItemInCart, reduceItemFromCart} from "../actions/cart-page.actions";
+import {increaseItemInCart, reduceItemFromCart, removeFromCart} from "../actions/cart-page.actions";
 
 export const initialState: CartFeatureState = {
-  cartItems: []
+  cartItems: [],
+  totalPrice: 0
 };
+
+const getTotalPrice = (cartItems: CartItem[]): number => {
+  return cartItems.reduce((partialSum, cartItem) => Number(partialSum) + (cartItem.numberOfItems * Number(cartItem.item.price)), 0);
+}
 
 export const cartReducer = createReducer(
   initialState,
@@ -21,16 +26,20 @@ export const cartReducer = createReducer(
         item: result.item
       } as CartItem;
 
+      const cartItems = [...store.cartItems.filter(item => item.item.id !== result.item.id), cartItem];
       return {
-        cartItems: [...store.cartItems.filter(item => item.item.id !== result.item.id), cartItem]
+        cartItems,
+        totalPrice: getTotalPrice(cartItems)
       }
     }
   ),
   on(reduceItemFromCart, (store: CartFeatureState, result) => {
     const existingItem = store.cartItems.find(item => item.id === result.cartItem.id);
     if (existingItem && existingItem.numberOfItems === 1) {
+      const cartItems = store.cartItems.filter(item => item.id !== result.cartItem.id)
       return {
-        cartItems: store.cartItems.filter(item => item.id !== result.cartItem.id)
+        cartItems,
+        totalPrice: getTotalPrice(cartItems)
       }
     }
 
@@ -41,8 +50,10 @@ export const cartReducer = createReducer(
       item: result.cartItem.item
     } as CartItem;
 
+    const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id), cartItem];
     return {
-      cartItems: [...store.cartItems.filter(item => item.id !== result.cartItem.id), cartItem]
+      cartItems,
+      totalPrice: getTotalPrice(cartItems)
     }
   }),
   on(increaseItemInCart, (store: CartFeatureState, result) => {
@@ -55,8 +66,18 @@ export const cartReducer = createReducer(
       item: result.cartItem.item
     } as CartItem;
 
+    const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id), cartItem];
+
     return {
-      cartItems: [...store.cartItems.filter(item => item.id !== result.cartItem.id), cartItem]
+      cartItems,
+      totalPrice: getTotalPrice(cartItems)
+    }
+  }),
+  on(removeFromCart, (store: CartFeatureState, result) => {
+    const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id)];
+    return {
+      cartItems,
+      totalPrice: getTotalPrice(cartItems)
     }
   }),
 );
