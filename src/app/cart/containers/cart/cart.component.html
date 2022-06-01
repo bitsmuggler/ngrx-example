@@ -1,7 +1,10 @@
 <h1>My cart 🛒</h1>
 
 <ng-container *ngIf="cartItems$ | async as items">
-  <app-cart-item *ngFor="let item of items" [cartItem]="item"
-                 (reduceItemFromCartEvent)="reduceItem(item)" (removeItemFromCartEvent)="removeItem(item)">
+  <app-cart-item *ngFor="let item of items | orderBy:'item.name'" [cartItem]="item"
+                 (reduceItemInCartEvent)="reduceItem(item)"
+                 (removeItemInCartEvent)="removeItem(item)"
+                 (increaseItemInCartEvent)="increaseItem(item)"
+  >
   </app-cart-item>
 </ng-container>
