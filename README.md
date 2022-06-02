@@ -4,4 +4,4 @@
 
 Blog Post: [What is NgRx and why is it used in Angular apps?](https://www.workingsoftware.dev/what-is-ngrx-and-why-is-it-used-in-angular/)
 
-Live: [https://ngrx-example.vercel.app]()
+Live: [https://ngrx-example.vercel.app](https://ngrx-example.vercel.app)
