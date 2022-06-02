@@ -5,6 +5,18 @@ mat-drawer {
   background-color: whitesmoke;
 }
 
+mat-drawer-container {
+  margin-top: 30px;
+}
+
+a {
+  width: 100%;
+  background-color: cornsilk;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
 .sidenav-content {
   margin: 0 10px 0 10px;
 }
@@ -12,3 +24,4 @@ mat-drawer {
 app-cart, app-item-list {
   margin: 10%;
 }
+

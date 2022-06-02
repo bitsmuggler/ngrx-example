@@ -12,6 +12,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { ItemComponent } from './components/item/item.component';
 import {MatCardModule} from "@angular/material/card";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -21,17 +22,18 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   exports: [
     CatalogPageComponent
   ],
-  imports: [
-    CommonModule,
-    StoreModule.forFeature('itemsFeature', catalogReducer),
-    EffectsModule.forFeature([CatalogEffect]),
-    HttpClientModule,
-    MatListModule,
-    BrowserModule,
-    MatButtonModule,
-    MatCardModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-  ]
+    imports: [
+        CommonModule,
+        StoreModule.forFeature('itemsFeature', catalogReducer),
+        EffectsModule.forFeature([CatalogEffect]),
+        HttpClientModule,
+        MatListModule,
+        BrowserModule,
+        MatButtonModule,
+        MatCardModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+    ]
 })
 export class CatalogModule { }

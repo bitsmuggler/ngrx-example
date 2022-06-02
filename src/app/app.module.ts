@@ -11,6 +11,9 @@ import {environment} from "../environments/environment";
 import {CartModule} from "./cart/cart.module";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     CatalogModule,
     CartModule,
     MatGridListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
