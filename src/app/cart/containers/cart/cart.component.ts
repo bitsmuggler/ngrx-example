@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CartFeatureState, selectCartItems, selectCartTotalPrice} from "../../reducers/cart.selector";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
@@ -13,6 +13,9 @@ import {increaseItemInCart, reduceItemFromCart, removeFromCart} from "../../acti
 export class CartComponent {
   cartItems$: Observable<CartItem[]>;
   totalPrice$: Observable<number>;
+
+  @Output()
+  closeEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   id = 'id';
 
@@ -31,5 +34,9 @@ export class CartComponent {
 
   increaseItem(cartItem: CartItem) {
     this.store.dispatch(increaseItemInCart({cartItem}));
+  }
+
+  closeCart() {
+    this.closeEvent.emit(true);
   }
 }

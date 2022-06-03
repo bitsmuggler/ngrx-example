@@ -8,3 +8,7 @@ export const addToCart = createAction(
   '[Items List] Add item to cart',
   props<{ item: Item }>()
 );
+
+export const openCart = createAction(
+  '[Items List] Open Cart'
+);

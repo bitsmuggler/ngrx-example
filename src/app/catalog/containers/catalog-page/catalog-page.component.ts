@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {addToCart, getItems} from "../../actions/items-page.actions";
+import {addToCart, getItems, openCart} from "../../actions/items-page.actions";
 import {ItemsFeatureState, selectItems} from "../../reducers/catalog.selector";
 import {Item} from "../../model/catalog.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-item-list',
@@ -11,13 +12,13 @@ import {Item} from "../../model/catalog.model";
 })
 export class CatalogPageComponent implements OnInit {
 
+  @Output()
+  itemAddedEvent = new EventEmitter<Item>();
+
   items$ = this.store.select(selectItems);
 
-  constructor(private readonly store: Store<ItemsFeatureState>) {
+  constructor(private readonly store: Store<ItemsFeatureState>, private snackbar: MatSnackBar) {
     this.store.dispatch(getItems());
-    this.items$.subscribe(n => {
-      console.log(n);
-    });
   }
 
   ngOnInit(): void {
@@ -25,5 +26,6 @@ export class CatalogPageComponent implements OnInit {
 
   addItemToCart(item: Item) {
     this.store.dispatch(addToCart({item}));
+    this.itemAddedEvent.emit(item);
   }
 }

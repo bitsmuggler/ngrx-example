@@ -7,11 +7,16 @@ import {increaseItemInCart, reduceItemFromCart, removeFromCart} from "../actions
 
 export const initialState: CartFeatureState = {
   cartItems: [],
-  totalPrice: 0
+  totalPrice: 0,
+  numberOfItems: 0
 };
 
 const getTotalPrice = (cartItems: CartItem[]): number => {
   return cartItems.reduce((partialSum, cartItem) => Number(partialSum) + (cartItem.numberOfItems * Number(cartItem.item.price)), 0);
+}
+
+const getNumberOfItems = (cartItems: CartItem[]): number => {
+  return cartItems.reduce((partialSum, cartItem) => Number(partialSum) + (cartItem.numberOfItems), 0);
 }
 
 export const cartReducer = createReducer(
@@ -29,7 +34,8 @@ export const cartReducer = createReducer(
       const cartItems = [...store.cartItems.filter(item => item.item.id !== result.item.id), cartItem];
       return {
         cartItems,
-        totalPrice: getTotalPrice(cartItems)
+        totalPrice: getTotalPrice(cartItems),
+        numberOfItems: getNumberOfItems(cartItems)
       }
     }
   ),
@@ -39,7 +45,8 @@ export const cartReducer = createReducer(
       const cartItems = store.cartItems.filter(item => item.id !== result.cartItem.id)
       return {
         cartItems,
-        totalPrice: getTotalPrice(cartItems)
+        totalPrice: getTotalPrice(cartItems),
+        numberOfItems: getNumberOfItems(cartItems)
       }
     }
 
@@ -53,7 +60,8 @@ export const cartReducer = createReducer(
     const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id), cartItem];
     return {
       cartItems,
-      totalPrice: getTotalPrice(cartItems)
+      totalPrice: getTotalPrice(cartItems),
+      numberOfItems: getNumberOfItems(cartItems)
     }
   }),
   on(increaseItemInCart, (store: CartFeatureState, result) => {
@@ -70,14 +78,16 @@ export const cartReducer = createReducer(
 
     return {
       cartItems,
-      totalPrice: getTotalPrice(cartItems)
+      totalPrice: getTotalPrice(cartItems),
+      numberOfItems: getNumberOfItems(cartItems)
     }
   }),
   on(removeFromCart, (store: CartFeatureState, result) => {
     const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id)];
     return {
       cartItems,
-      totalPrice: getTotalPrice(cartItems)
+      totalPrice: getTotalPrice(cartItems),
+      numberOfItems: getNumberOfItems(cartItems)
     }
   }),
 );

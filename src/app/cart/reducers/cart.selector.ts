@@ -3,7 +3,8 @@ import {CartItem} from "../model/cart-item.model";
 
 export interface CartFeatureState {
   cartItems: CartItem[],
-  totalPrice: number
+  totalPrice: number,
+  numberOfItems: number
 }
 
 export const selectCartState = (state: CartFeatureState) => state;
@@ -20,4 +21,5 @@ export const selectCartTotalPrice = createSelector(
   (state: any | undefined) => {
     return state?.cartFeature?.totalPrice;
   }
-)
+);
+

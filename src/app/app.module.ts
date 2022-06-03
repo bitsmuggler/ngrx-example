@@ -14,6 +14,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
+import {MatBadgeModule} from "@angular/material/badge";
+import {shellReducer} from "./core/reducers/core.reducer";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import {MatButtonModule} from "@angular/material/button";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(shellReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
@@ -35,7 +37,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

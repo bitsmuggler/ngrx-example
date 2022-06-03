@@ -13,6 +13,7 @@ import { ItemComponent } from './components/item/item.component';
 import {MatCardModule} from "@angular/material/card";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatIconModule} from "@angular/material/icon";
         BrowserModule,
         BrowserAnimationsModule,
         MatIconModule,
+        MatSnackBarModule
     ]
 })
 export class CatalogModule { }
