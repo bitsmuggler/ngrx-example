@@ -1,6 +1,6 @@
 import {Component, OnDestroy} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {selectNumberOfCartItems, ShellState} from "./core/selectors/core.selector";
+import {selectNumberOfCartItems, ShellState} from "./shell/selectors/core.selector";
 import {Observable, Subscription} from "rxjs";
 import {DeviceDetectorService} from "ngx-device-detector";
 import {MatSnackBar} from "@angular/material/snack-bar";

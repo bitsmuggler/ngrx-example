@@ -15,7 +15,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatBadgeModule} from "@angular/material/badge";
-import {shellReducer} from "./core/reducers/core.reducer";
+import {shellReducer} from "./shell/reducers/core.reducer";
 
 @NgModule({
   declarations: [
