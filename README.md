@@ -8,4 +8,4 @@ This is the repository from the live example of the following blog post [What is
 
 Demo: [https://ngrx-example.vercel.app](https://ngrx-example.vercel.app)
 
-[![Screenshot ngrx-example demo](https://github.com/bitsmuggler/ngrx-example/raw/main/demp-app-screenshot.png)]
+![Screenshot ngrx-example demo](https://raw.githubusercontent.com/bitsmuggler/ngrx-example/main/demo-app-screenshot.png)
