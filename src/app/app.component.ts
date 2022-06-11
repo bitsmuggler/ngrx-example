@@ -15,6 +15,7 @@ import {Item} from "./catalog/model/catalog.model";
 export class AppComponent implements OnDestroy {
   title = 'ngrx-example';
   numberOfCartItems$: Observable<number>;
+  infoText = this.deviceDetector.isDesktop() ? '🔎 Blog Post: What is NgRx and why is it used in Angular apps?' : '🔎 Blog Post: Why is NgRx used in Angular apps?';
   private snackbarSubscription: Subscription | undefined;
 
   constructor(private store: Store<ShellState>,

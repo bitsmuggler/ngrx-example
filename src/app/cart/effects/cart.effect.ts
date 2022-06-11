@@ -10,7 +10,7 @@ export class CartEffect {
   addItemToCart$ = createEffect(() => this.actions$.pipe(
       ofType(addToCart),
       // Call Server via service here
-      map(items => (itemAddedSuccess()))
+      map(_ => (itemAddedSuccess()))
     )
   );
 

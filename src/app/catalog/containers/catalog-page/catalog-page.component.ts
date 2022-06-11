@@ -1,9 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {addToCart, getItems, openCart} from "../../actions/items-page.actions";
+import {addToCart, getItems} from "../../actions/items-page.actions";
 import {ItemsFeatureState, selectItems} from "../../reducers/catalog.selector";
 import {Item} from "../../model/catalog.model";
-import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-item-list',
@@ -17,7 +16,7 @@ export class CatalogPageComponent implements OnInit {
 
   items$ = this.store.select(selectItems);
 
-  constructor(private readonly store: Store<ItemsFeatureState>, private snackbar: MatSnackBar) {
+  constructor(private readonly store: Store<ItemsFeatureState>) {
     this.store.dispatch(getItems());
   }
 

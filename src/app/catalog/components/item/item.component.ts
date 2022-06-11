@@ -4,17 +4,12 @@ import {Item} from "../../model/catalog.model";
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  styleUrls: []
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
 
   @Input() item: Item | undefined;
   @Output() addToCartEventEmitter = new EventEmitter<Item>();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   addToCart(item: Item | undefined): void {
     this.addToCartEventEmitter.emit(item);

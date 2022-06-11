@@ -1,6 +1,4 @@
-<a *ngIf="deviceDetector.isDesktop()" mat-raised-button href="https://www.workingsoftware.dev/what-is-ngrx-and-why-is-it-used-in-angular/" target="_blank">🔎 Blog Post: What is NgRx and why is it used in Angular apps? <mat-icon>open_in_new</mat-icon></a>
-<a *ngIf="deviceDetector.isMobile()" mat-raised-button href="https://www.workingsoftware.dev/what-is-ngrx-and-why-is-it-used-in-angular/" target="_blank">🔎 Blog Post: Why is NgRx used in Angular apps? <mat-icon>open_in_new</mat-icon></a>
-
+<a mat-raised-button href="https://www.workingsoftware.dev/what-is-ngrx-and-why-is-it-used-in-angular/" rel="noopener" target="_blank">{{infoText}}<mat-icon>open_in_new</mat-icon></a>
 <mat-sidenav-container class="container" autosize>
   <mat-sidenav #sidenav fixedTopGap="50" fixedBottomGap="" fixedInViewport="true" [opened]="false" [mode]="deviceDetector.isMobile() ? 'over': 'side'">
     <app-cart (closeEvent)="sidenav.close()"></app-cart>
