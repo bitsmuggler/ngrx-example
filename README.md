@@ -2,6 +2,7 @@
 
 ![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=ngrx-example)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bitsmuggler_ngrx-example&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitsmuggler_ngrx-example)
+![example workflow](https://github.com/bitsmuggler/ngrx-example/actions/workflows/build.yml/badge.svg)
 
 Demo: [https://ngrx-example.vercel.app](https://ngrx-example.vercel.app)
 

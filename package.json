@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:ci": "ng test --sourceMap=false --browsers=ChromeHeadless --watch=false"
   },
   "private": true,
   "dependencies": {
