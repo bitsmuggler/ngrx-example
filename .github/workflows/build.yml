@@ -1,4 +1,4 @@
-name: Angular CI
+name: ngrx-example
 on:
   push:
     branches:

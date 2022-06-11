@@ -1,8 +1,8 @@
 # ngrx-example
 
 ![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=ngrx-example)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bitsmuggler_ngrx-example&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitsmuggler_ngrx-example)
-![Angular GitHub CI Workflow](https://github.com/bitsmuggler/ngrx-example/actions/workflows/build.yml/badge.svg)
+[![Sonarcloud Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bitsmuggler_ngrx-example&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitsmuggler_ngrx-example)
+![ngrx-example CI Status](https://github.com/bitsmuggler/ngrx-example/actions/workflows/build.yml/badge.svg)
 
 Demo: [https://ngrx-example.vercel.app](https://ngrx-example.vercel.app)
 
