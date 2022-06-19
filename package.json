@@ -11,19 +11,19 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.0.2",
-    "@angular/cdk": "^14.0.2",
-    "@angular/common": "^14.0.2",
-    "@angular/compiler": "^14.0.2",
-    "@angular/core": "^14.0.2",
-    "@angular/forms": "^14.0.2",
-    "@angular/material": "^14.0.2",
-    "@angular/platform-browser": "^14.0.2",
-    "@angular/platform-browser-dynamic": "^14.0.2",
-    "@angular/router": "^14.0.2",
-    "@ngrx/effects": "^14.0.0-rc.0",
-    "@ngrx/store": "^14.0.0-rc.0",
-    "@ngrx/store-devtools": "^14.0.0-rc.0 ",
+    "@angular/animations": "^13.3.11",
+    "@angular/cdk": "^13.3.9",
+    "@angular/common": "^13.3.11",
+    "@angular/compiler": "^13.3.11",
+    "@angular/core": "^13.3.11",
+    "@angular/forms": "^13.3.11",
+    "@angular/material": "^13.3.9",
+    "@angular/platform-browser": "^13.3.11",
+    "@angular/platform-browser-dynamic": "^13.3.11",
+    "@angular/router": "^13.3.11",
+    "@ngrx/effects": "^13.2.0",
+    "@ngrx/store": "^13.2.0",
+    "@ngrx/store-devtools": "^13.2.0",
     "ngx-device-detector": "^3.0.0",
     "ngx-pipes": "^3.0.0",
     "rxjs": "~7.5.0",
@@ -32,9 +32,9 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.0.2",
-    "@angular/cli": "^14.0.2",
-    "@angular/compiler-cli": "^14.0.2",
+    "@angular-devkit/build-angular": "^13.3.8",
+    "@angular/cli": "^13.3.8",
+    "@angular/compiler-cli": "^13.3.11",
     "@ngrx/schematics": "^13.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
@@ -47,23 +47,5 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "shallow-render": "^13.0.1",
     "typescript": "~4.6.2"
-  },
-  "overrides": {
-    "ngx-device-detector": {
-      "@angular/cdk": "^14.0.0",
-      "@angular/common": "^14.0.0",
-      "@angular/core": "^14.0.0",
-      "@angular/platform-browser": "^14.0.0"
-    },
-    "ngx-pipes": {
-      "@angular/core": "^14.0.0"
-    },
-    "shallow-render": {
-      "@angular/common": "^14.0.0",
-      "@angular/core": "^14.0.0",
-      "@angular/platform-browser": "^14.0.0",
-      "@angular/compiler": "^14.0.0",
-      "@angular/forms": "^14.0.0"
-    }
   }
 }

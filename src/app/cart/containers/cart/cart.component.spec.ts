@@ -89,5 +89,12 @@ describe('CartComponent', () => {
       find('button')[0].nativeElement.click();
       expect(instance.closeEvent.emit).toHaveBeenCalled();
     })
-  })
+  });
+
+  describe('test cartitem', () => {
+    it('should bind', async () => {
+      const {find, inject, fixture, instance} = await shallow.dontMock(OrderByPipe).render({bind: {cartItem: {}}});
+      expect(instance).toBeDefined();
+    })
+  });
 });

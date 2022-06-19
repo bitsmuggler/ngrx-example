@@ -8,10 +8,10 @@ import {CartItem} from "../../model/cart-item.model";
 })
 export class CartItemComponent {
 
-  @Input() cartItem: CartItem | undefined;
-  @Output() increaseItemInCartEvent = new EventEmitter<CartItem>();
-  @Output() reduceItemInCartEvent = new EventEmitter<CartItem>();
-  @Output() removeItemInCartEvent = new EventEmitter<CartItem>();
+  @Input() cartItem: any | undefined;
+  @Output() increaseItemInCartEvent = new EventEmitter<any>();
+  @Output() reduceItemInCartEvent = new EventEmitter<any>();
+  @Output() removeItemInCartEvent = new EventEmitter<any>();
 
   reduceItemInCart() {
     this.reduceItemInCartEvent.emit(this.cartItem);
