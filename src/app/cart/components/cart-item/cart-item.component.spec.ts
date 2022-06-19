@@ -1,25 +1,38 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CartItemComponent } from './cart-item.component';
+import {CartItemComponent} from './cart-item.component';
+import {Shallow} from "shallow-render";
+import {CartModule} from "../../cart.module";
+import {CartItem} from "../../model/cart-item.model";
 
 describe('CartItemComponent', () => {
-  let component: CartItemComponent;
-  let fixture: ComponentFixture<CartItemComponent>;
+  let shallow: Shallow<CartItemComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CartItemComponent ]
-    })
-    .compileComponents();
+    shallow = new Shallow<CartItemComponent>(CartItemComponent, CartModule);
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CartItemComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  it('should create', async () => {
+    const {fixture} = await shallow.render();
+    expect(fixture).toBeTruthy();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should emit reduceItemInCartEvent', async () => {
+    const cartItem = {} as CartItem;
+    const {instance} = await shallow.render({bind: {cartItem}});
+    instance.reduceItemInCart();
+    expect(instance.reduceItemInCartEvent.emit).toHaveBeenCalledWith(cartItem);
   });
+
+  it('should emit increaseItemInCartEvent', async () => {
+    const cartItem = {} as CartItem;
+    const {instance} = await shallow.render({bind: {cartItem}});
+    instance.increaseItemInCart();
+    expect(instance.increaseItemInCartEvent.emit).toHaveBeenCalledWith(cartItem);
+  });
+
+  it('should emit removeItemFromCart', async () => {
+    const cartItem = {} as CartItem;
+    const {instance} = await shallow.render({bind: {cartItem}});
+    instance.removeItemFromCart();
+    expect(instance.removeItemInCartEvent.emit).toHaveBeenCalledWith(cartItem);
+  })
 });
