@@ -7,8 +7,7 @@ import {selectCartItems, selectCartTotalPrice} from "../../reducers/cart.selecto
 import {CartItem} from "../../model/cart-item.model";
 import {CartItemComponent} from "../../components/cart-item/cart-item.component";
 import {OrderByPipe} from "ngx-pipes";
-import {CurrencyPipe, formatCurrency} from "@angular/common";
-import {MatButton} from "@angular/material/button";
+import {CurrencyPipe} from "@angular/common";
 
 describe('CartComponent', () => {
   let shallow: Shallow<CartComponent>;
