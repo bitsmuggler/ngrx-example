@@ -9,7 +9,7 @@ import {Item} from "../../model/catalog.model";
   templateUrl: './catalog-page.component.html',
   styleUrls: ['./catalog-page.component.scss']
 })
-export class CatalogPageComponent implements OnInit {
+export class CatalogPageComponent {
 
   @Output()
   itemAddedEvent = new EventEmitter<Item>();
@@ -18,9 +18,6 @@ export class CatalogPageComponent implements OnInit {
 
   constructor(private readonly store: Store<ItemsFeatureState>) {
     this.store.dispatch(getItems());
-  }
-
-  ngOnInit(): void {
   }
 
   addItemToCart(item: Item) {

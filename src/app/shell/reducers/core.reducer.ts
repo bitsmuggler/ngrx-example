@@ -8,7 +8,7 @@ export const initialState: ShellState = {
 
 export const shellReducer = createReducer(
   initialState,
-  on(openCart, (store: ShellState) => ({
+  on(openCart, () => ({
     cartOpen: true
   }))
 );

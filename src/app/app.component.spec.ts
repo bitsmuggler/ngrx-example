@@ -8,8 +8,8 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {CartModule} from "./cart/cart.module";
 import {CatalogModule} from "./catalog/catalog.module";
-import {EffectsModule, EffectsRootModule} from "@ngrx/effects";
-import {StoreModule, StoreRootModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
+import {StoreModule} from "@ngrx/store";
 import {shellReducer} from "./shell/reducers/core.reducer";
 import {MatBadgeModule} from "@angular/material/badge";
 
