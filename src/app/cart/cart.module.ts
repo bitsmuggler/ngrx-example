@@ -1,24 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartComponent } from './containers/cart/cart.component';
-import { CartItemComponent } from './components/cart-item/cart-item.component';
-import { StoreModule } from '@ngrx/store';
-import { MatCardModule } from '@angular/material/card';
-import { cartReducer } from './reducers/cart.reducer';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { NgPipesModule } from 'ngx-pipes';
-import { EffectsModule } from '@ngrx/effects';
-import { CartEffect } from './effects/cart.effect';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartComponent } from './containers/cart/cart.component';
 
 @NgModule({
   declarations: [CartComponent, CartItemComponent],
   exports: [CartComponent],
   imports: [
     CommonModule,
-    EffectsModule.forFeature([CartEffect]),
-    StoreModule.forFeature('cartFeature', cartReducer),
     MatCardModule,
     MatInputModule,
     MatIconModule,

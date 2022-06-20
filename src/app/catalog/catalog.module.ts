@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CatalogPageComponent } from './containers/catalog-page/catalog-page.component';
-import { EffectsModule } from '@ngrx/effects';
-import { CatalogEffect } from './effects/catalog.effect';
-import { StoreModule } from '@ngrx/store';
-import { catalogReducer } from './reducers/catalog.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,8 +16,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   exports: [CatalogPageComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature('itemsFeature', catalogReducer),
-    EffectsModule.forFeature([CatalogEffect]),
     HttpClientModule,
     MatListModule,
     BrowserModule,
