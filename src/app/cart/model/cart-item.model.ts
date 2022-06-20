@@ -1,8 +1,5 @@
 import { Item } from '../../catalog/model/catalog.model';
 
-export interface CartItem {
-  id: string;
+export interface CartItem extends Item {
   numberOfItems: number;
-  totalPrice: number;
-  item: Item;
 }

@@ -1,10 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { addToCart, getItems } from '../../actions/items-page.actions';
-import {
-  ItemsFeatureState,
-  selectItems,
-} from '../../reducers/catalog.selector';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CartStore } from 'src/app/cart/cart.store';
+import { CatalogStore } from '../../catalog.store';
 import { Item } from '../../model/catalog.model';
 
 @Component({
@@ -16,14 +12,15 @@ export class CatalogPageComponent {
   @Output()
   itemAddedEvent = new EventEmitter<Item>();
 
-  items$ = this.store.select(selectItems);
+  items$ = this.catalogStore.store.items$;
 
-  constructor(private readonly store: Store<ItemsFeatureState>) {
-    this.store.dispatch(getItems());
-  }
+  constructor(
+    private catalogStore: CatalogStore,
+    private cartStore: CartStore
+  ) {}
 
   addItemToCart(item: Item) {
-    this.store.dispatch(addToCart({ item }));
+    this.cartStore.addItemToCart$.next(item);
     this.itemAddedEvent.emit(item);
   }
 }

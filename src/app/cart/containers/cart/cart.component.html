@@ -8,9 +8,9 @@
   <app-cart-item
     *ngFor="let item of items | orderBy: 'item.name'"
     [cartItem]="item"
-    (reduceItemInCartEvent)="reduceItem(item)"
-    (removeItemInCartEvent)="removeItem(item)"
-    (increaseItemInCartEvent)="increaseItem(item)"
+    (reduceItemInCartEvent)="decreaseItemInCart$.next(item)"
+    (removeItemInCartEvent)="removeItemFromCart$.next(item)"
+    (increaseItemInCartEvent)="increaseItemInCart$.next(item)"
   >
   </app-cart-item>
 </ng-container>

@@ -1,12 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { selectNumberOfCartItems } from './shell/selectors/core.selector';
-import { Observable, Subscription } from 'rxjs';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { Subscription } from 'rxjs';
+import { CartStore } from './cart/cart.store';
 import { Item } from './catalog/model/catalog.model';
-import { CartFeatureState } from './cart/reducers/cart.selector';
 
 @Component({
   selector: 'app-root',
@@ -15,19 +13,17 @@ import { CartFeatureState } from './cart/reducers/cart.selector';
 })
 export class AppComponent implements OnDestroy {
   title = 'ngrx-example';
-  numberOfCartItems$: Observable<number>;
+  numberOfCartItems$ = this.cartStore.numberOfItems$;
   infoText = this.deviceDetector.isDesktop()
     ? '🔎 Blog Post: What is NgRx and why is it used in Angular apps?'
     : '🔎 Blog Post: Why is NgRx used in Angular apps?';
   private snackbarSubscription: Subscription | undefined;
 
   constructor(
-    private store: Store<CartFeatureState>,
+    private cartStore: CartStore,
     public deviceDetector: DeviceDetectorService,
     private matsnackbar: MatSnackBar
-  ) {
-    this.numberOfCartItems$ = this.store.select(selectNumberOfCartItems);
-  }
+  ) {}
 
   onItemAdded(item: Item, matsideNav: MatSidenav) {
     this.snackbarSubscription = this.matsnackbar
