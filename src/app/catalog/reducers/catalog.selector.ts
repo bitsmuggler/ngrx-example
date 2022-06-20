@@ -1,8 +1,8 @@
-import {createSelector} from '@ngrx/store';
-import {Item} from "../model/catalog.model";
+import { createSelector } from '@ngrx/store';
+import { Item } from '../model/catalog.model';
 
 export interface ItemsFeatureState {
-  items: Item[]
+  items: Item[];
 }
 
 export const selectItemsState = (state: ItemsFeatureState) => state;

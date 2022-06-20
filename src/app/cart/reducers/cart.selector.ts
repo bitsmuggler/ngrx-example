@@ -1,10 +1,10 @@
 import { createSelector } from '@ngrx/store';
-import {CartItem} from "../model/cart-item.model";
+import { CartItem } from '../model/cart-item.model';
 
 export interface CartFeatureState {
-  cartItems: CartItem[],
-  totalPrice: number,
-  numberOfItems: number
+  cartItems: CartItem[];
+  totalPrice: number;
+  numberOfItems: number;
 }
 
 export const selectCartState = (state: CartFeatureState) => state;
@@ -22,4 +22,3 @@ export const selectCartTotalPrice = createSelector(
     return state?.cartFeature?.totalPrice;
   }
 );
-

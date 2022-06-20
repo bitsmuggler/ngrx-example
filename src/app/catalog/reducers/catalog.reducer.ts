@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import {itemsLoadedSuccess} from "../actions/items-api.actions";
-import {ItemsFeatureState} from "./catalog.selector";
+import { itemsLoadedSuccess } from '../actions/items-api.actions';
+import { ItemsFeatureState } from './catalog.selector';
 
 export const initialState: ItemsFeatureState = {
-  items: []
+  items: [],
 };
 
 export const catalogReducer = createReducer(
@@ -11,7 +11,7 @@ export const catalogReducer = createReducer(
   on(itemsLoadedSuccess, (store, result) => {
     return {
       ...store,
-      items: result.data
-    }
+      items: result.data,
+    };
   })
 );
