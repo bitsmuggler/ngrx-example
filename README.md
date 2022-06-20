@@ -6,6 +6,11 @@
 
 This repository contains the NgRx example for the following blog post: [What is NgRx and why is it used in Angular apps?](https://www.workingsoftware.dev/what-is-ngrx-and-why-is-it-used-in-angular/)
 
+![Screenshot ngrx-example demo](https://raw.githubusercontent.com/bitsmuggler/ngrx-example/main/demo-app-screenshot.png)
+
+Demo: [https://ngrx-example.vercel.app](https://ngrx-example.vercel.app)
+
+
 This example will help you understand how to use the NgRx framework.
 
 From a business perspective, it is a product catalog with a shopping cart. You can add items to the cart and then remove them.
@@ -18,13 +23,8 @@ It contains the following technical aspects:
 
 In addition to Angular Framework and NgRx, it uses the following supporting frameworks & tools:
 
-* [Angular Material](https://material.angular.io/) for the UI -stuff.
+* [Angular Material](https://material.angular.io/) for the UI-stuff.
 * [shallow-render](https://github.com/getsaf/shallow-render) for reducing boilerplate test code.
 * [Vercel](https://vercel.com/) for deploying the demo application
 * [SonarCloud](https://sonarcloud.io/) for continuous static code analysis
 * [GitHub Actions](https://github.com/features/actions) for running the tests.
-
-Demo: [https://ngrx-example.vercel.app](https://ngrx-example.vercel.app)
-
-![Screenshot ngrx-example demo](https://raw.githubusercontent.com/bitsmuggler/ngrx-example/main/demo-app-screenshot.png)
-
