@@ -27,7 +27,6 @@ export const cartReducer = createReducer(
       const cartItem = {
         id: uuidv4(),
         numberOfItems: existingItem ? existingItem.numberOfItems + 1 : 1,
-        totalPrice: existingItem ? existingItem.totalPrice + result.item.price : result.item.price,
         item: result.item
       } as CartItem;
 
@@ -56,7 +55,6 @@ export const cartReducer = createReducer(
     const cartItem = {
       id: uuidv4(),
       numberOfItems: existingItem ? existingItem.numberOfItems - 1 : 1,
-      totalPrice: existingItem ? existingItem.totalPrice - result.cartItem.item.price : result.cartItem.item.price,
       item: result.cartItem.item
     } as CartItem;
 
@@ -73,7 +71,6 @@ export const cartReducer = createReducer(
     const cartItem = {
       id: uuidv4(),
       numberOfItems: existingItem ? existingItem.numberOfItems + 1 : 1,
-      totalPrice: existingItem ? existingItem.totalPrice + result.cartItem.item.price : result.cartItem.item.price,
       item: result.cartItem.item
     } as CartItem;
 

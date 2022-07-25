@@ -68,7 +68,6 @@ describe('Cart Reducer', () => {
         result = cartReducer(result, action);
         const selectedCartItem = result.cartItems.find(cartItem => cartItem.item.id === itemId);
         expect(selectedCartItem?.numberOfItems).toBe(2);
-        expect(selectedCartItem?.totalPrice).toBe(item.price * 2);
       });
     })
   });

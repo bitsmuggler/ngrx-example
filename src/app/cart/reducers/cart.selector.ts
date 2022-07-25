@@ -1,4 +1,5 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector, State } from '@ngrx/store';
+import { Item } from 'src/app/catalog/model/catalog.model';
 import {CartItem} from "../model/cart-item.model";
 
 export interface CartFeatureState {
@@ -23,3 +24,7 @@ export const selectCartTotalPrice = createSelector(
   }
 );
 
+export const selectItemTotalPrice = (id: string) =>  createSelector(selectCartState, (state: any | undefined) => {
+  const cartItem = state?.cartFeature?.cartItems.find((item: CartItem) => item.id === id)
+  return cartItem.numberOfItems * cartItem.item.price
+});
