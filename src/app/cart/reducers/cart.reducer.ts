@@ -12,11 +12,11 @@ export const initialState: CartFeatureState = {
 };
 
 const getTotalPrice = (cartItems: CartItem[]): number => {
-  return cartItems.reduce((partialSum, cartItem) => Number(partialSum) + (cartItem.numberOfItems * Number(cartItem.item.price)), 0);
+  return cartItems.reduce((partialSum, cartItem) => partialSum + (cartItem.numberOfItems * cartItem.item.price), 0);
 }
 
 const getNumberOfItems = (cartItems: CartItem[]): number => {
-  return cartItems.reduce((partialSum, cartItem) => Number(partialSum) + (cartItem.numberOfItems), 0);
+  return cartItems.reduce((partialSum, cartItem) => partialSum + cartItem.numberOfItems, 0);
 }
 
 export const cartReducer = createReducer(
@@ -26,18 +26,21 @@ export const cartReducer = createReducer(
       const existingItem = store.cartItems.find(item => item.item.id === result.item.id);
       const cartItem = {
         id: uuidv4(),
-        numberOfItems: existingItem ? Number(existingItem.numberOfItems) + 1 : 1,
-        totalPrice: existingItem ? Number(existingItem.totalPrice) + Number(result.item.price) : Number(result.item.price),
+        numberOfItems: existingItem ? existingItem.numberOfItems + 1 : 1,
+        totalPrice: existingItem ? existingItem.totalPrice + result.item.price : result.item.price,
         item: result.item
       } as CartItem;
 
       const cartItems = [...store.cartItems.filter(item => item.item.id !== result.item.id), cartItem];
+
       return {
         cartItems,
         totalPrice: getTotalPrice(cartItems),
         numberOfItems: getNumberOfItems(cartItems)
       }
     }
+
+    
   ),
   on(reduceItemFromCart, (store: CartFeatureState, result) => {
     const existingItem = store.cartItems.find(item => item.id === result.cartItem.id);
@@ -70,7 +73,7 @@ export const cartReducer = createReducer(
     const cartItem = {
       id: uuidv4(),
       numberOfItems: existingItem ? existingItem.numberOfItems + 1 : 1,
-      totalPrice: existingItem ? Number(existingItem.totalPrice) + Number(result.cartItem.item.price) : Number(result.cartItem.item.price),
+      totalPrice: existingItem ? existingItem.totalPrice + result.cartItem.item.price : result.cartItem.item.price,
       item: result.cartItem.item
     } as CartItem;
 
