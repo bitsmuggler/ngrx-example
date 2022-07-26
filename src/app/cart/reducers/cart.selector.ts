@@ -4,7 +4,6 @@ import {CartItem} from "../model/cart-item.model";
 
 export interface CartFeatureState {
   cartItems: CartItem[],
-  totalPrice: number,
   numberOfItems: number
 }
 

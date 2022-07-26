@@ -8,7 +8,6 @@ import { Item } from 'src/app/catalog/model/catalog.model';
 
 export const initialState: CartFeatureState = {
   cartItems: [],
-  totalPrice: 0,
   numberOfItems: 0
 };
 
@@ -63,7 +62,6 @@ export const cartReducer = createReducer(
     const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id)];
     return {
       cartItems,
-      totalPrice: getTotalPrice(cartItems),
       numberOfItems: getNumberOfItems(cartItems)
     }
   }),
