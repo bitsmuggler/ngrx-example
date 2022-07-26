@@ -1,10 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 import { CartFeatureState } from "./cart.selector";
-import { v4 as uuidv4 } from 'uuid';
 import { addToCart } from "../../catalog/actions/items-page.actions";
 import { CartItem } from "../model/cart-item.model";
 import { increaseItemInCart, reduceItemFromCart, removeFromCart } from "../actions/cart-page.actions";
-import { Item } from 'src/app/catalog/model/catalog.model';
 
 export const initialState: CartFeatureState = {
   cartItems: [],
@@ -35,8 +33,6 @@ export const cartReducer = createReducer(
   }
   ),
   on(reduceItemFromCart, (store: CartFeatureState, result) => {
-    const cartItem = store.cartItems.find(({ id }) => id === result.cartItem.id);
-
     return {
       ...store,
       cartItems: store.cartItems.map((cartItem) => cartItem.id !== result.cartItem.id
@@ -47,8 +43,6 @@ export const cartReducer = createReducer(
     }
   }),
   on(increaseItemInCart, (store: CartFeatureState, result) => {
-    const cartItem = store.cartItems.find(({ id }) => id === result.cartItem.id);
-
     return {
       ...store,
       cartItems: store.cartItems.map((cartItem) => cartItem.id !== result.cartItem.id
