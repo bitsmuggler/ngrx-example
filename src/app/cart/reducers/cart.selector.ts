@@ -20,11 +20,8 @@ export const selectCartItems = createSelector(
 export const selectCartTotalPrice = createSelector(
   selectCartState,
   (state: any | undefined) => {
-    return state?.cartFeature?.totalPrice;
+    return state.cartFeature.cartItems.reduce((accumulator: number, cartItem: CartItem) => {
+      return accumulator + (cartItem.numberOfItems * cartItem.item.price);
+    }, 0);
   }
 );
-
-export const selectItemTotalPrice = (id: string) =>  createSelector(selectCartState, (state: any | undefined) => {
-  const cartItem = state?.cartFeature?.cartItems.find((item: CartItem) => item.id === id)
-  return cartItem.numberOfItems * cartItem.item.price
-});

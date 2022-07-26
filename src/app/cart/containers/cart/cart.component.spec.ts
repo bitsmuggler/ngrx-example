@@ -68,8 +68,8 @@ describe('CartComponent', () => {
       const expectedTotalPrice = 1234.50;
       const {inject, fixture, find} = await shallow.dontMock(OrderByPipe).render();
       const mockStore = inject(MockStore);
-      mockStore.overrideSelector(selectCartTotalPrice, expectedTotalPrice);
       mockStore.overrideSelector(selectCartItems, [{}, {}, {}]);
+      mockStore.overrideSelector(selectCartTotalPrice, expectedTotalPrice);
       mockStore.refreshState();
       fixture.detectChanges();
       const currencyPipe = new CurrencyPipe('en');

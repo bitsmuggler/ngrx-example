@@ -26,10 +26,6 @@ describe('Cart Reducer', () => {
         expect(result.numberOfItems).toEqual(1);
       });
 
-      it('should add the price of the item to the totalPrice in the cart', () => {
-        expect(result.totalPrice).toEqual(item.price);
-      });
-
       it('should add the catalog item as cart item', () => {
         const cartItem = result.cartItems[0];
         expect(cartItem).toEqual(jasmine.objectContaining({
