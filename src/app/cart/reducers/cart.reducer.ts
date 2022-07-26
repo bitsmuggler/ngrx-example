@@ -36,44 +36,27 @@ export const cartReducer = createReducer(
   }
   ),
   on(reduceItemFromCart, (store: CartFeatureState, result) => {
-    const existingItem = store.cartItems.find(item => item.id === result.cartItem.id);
-    if (existingItem && existingItem.numberOfItems === 1) {
-      const cartItems = store.cartItems.filter(item => item.id !== result.cartItem.id)
-      return {
-        cartItems,
-        totalPrice: getTotalPrice(cartItems),
-        numberOfItems: getNumberOfItems(cartItems)
-      }
-    }
+    const cartItem = store.cartItems.find(({ id }) => id === result.cartItem.id);
 
-    const cartItem = {
-      id: uuidv4(),
-      numberOfItems: existingItem ? existingItem.numberOfItems - 1 : 1,
-      item: result.cartItem.item
-    } as CartItem;
-
-    const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id), cartItem];
     return {
-      cartItems,
-      totalPrice: getTotalPrice(cartItems),
-      numberOfItems: getNumberOfItems(cartItems)
+      ...store,
+      cartItems: store.cartItems.map((cartItem) => cartItem.id !== result.cartItem.id
+        ? cartItem
+        : { ...cartItem, numberOfItems: cartItem.numberOfItems - 1 }
+      ).filter(({ numberOfItems }) => numberOfItems > 0),
+      numberOfItems: store.numberOfItems - 1
     }
   }),
   on(increaseItemInCart, (store: CartFeatureState, result) => {
-    const existingItem = store.cartItems.find(item => item.id === result.cartItem.id);
-
-    const cartItem = {
-      id: uuidv4(),
-      numberOfItems: existingItem ? existingItem.numberOfItems + 1 : 1,
-      item: result.cartItem.item
-    } as CartItem;
-
-    const cartItems = [...store.cartItems.filter(item => item.id !== result.cartItem.id), cartItem];
+    const cartItem = store.cartItems.find(({ id }) => id === result.cartItem.id);
 
     return {
-      cartItems,
-      totalPrice: getTotalPrice(cartItems),
-      numberOfItems: getNumberOfItems(cartItems)
+      ...store,
+      cartItems: store.cartItems.map((cartItem) => cartItem.id !== result.cartItem.id
+        ? cartItem
+        : { ...cartItem, numberOfItems: cartItem.numberOfItems + 1 }
+      ).filter(({ numberOfItems }) => numberOfItems > 0),
+      numberOfItems: store.numberOfItems + 1
     }
   }),
   on(removeFromCart, (store: CartFeatureState, result) => {
