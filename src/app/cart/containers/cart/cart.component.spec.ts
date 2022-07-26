@@ -29,21 +29,23 @@ describe('CartComponent', () => {
     ];
 
     it(`should render ${selectedCartItems.length} CartItems`, async () => {
-      const { inject, fixture, findComponent } = await shallow.dontMock(OrderByPipe).render();
-      const mockStore = inject(MockStore);
-      mockStore.overrideSelector(selectCartItems, selectedCartItems);
-      mockStore.refreshState();
-      fixture.detectChanges();
+      const { findComponent } = await shallow.dontMock(OrderByPipe)
+      .provide(provideMockStore({
+        selectors: [
+          { selector: selectCartItems, value: selectedCartItems }],
+      }))
+      .render();
 
       expect(findComponent(CartItemComponent).length).toBe(3);
     });
 
     it('should order by name asc', async () => {
-      const { inject, fixture, findComponent } = await shallow.dontMock(OrderByPipe).render();
-      const mockStore = inject(MockStore);
-      mockStore.overrideSelector(selectCartItems, selectedCartItems);
-      mockStore.refreshState();
-      fixture.detectChanges();
+      const { findComponent } = await shallow.dontMock(OrderByPipe)
+      .provide(provideMockStore({
+        selectors: [
+          { selector: selectCartItems, value: selectedCartItems }],
+      }))
+      .render();
 
       const cartItems = findComponent(CartItemComponent).map(n => n.cartItem)
         .map(n => n?.item)
@@ -53,11 +55,12 @@ describe('CartComponent', () => {
     });
 
     it('should show "empty cart" if there are not any CartItems', async () => {
-      const { find, inject, fixture } = await shallow.dontMock(OrderByPipe).render();
-      const mockStore = inject(MockStore);
-      mockStore.overrideSelector(selectCartItems, []);
-      mockStore.refreshState();
-      fixture.detectChanges();
+      const { find } = await shallow.dontMock(OrderByPipe)
+      .provide(provideMockStore({
+        selectors: [
+          { selector: selectCartItems, value: [] }],
+      }))
+      .render();
 
       expect(find('span')[0].nativeElement.innerText).toBe('Empty cart 🕵🏻');
     })
@@ -87,11 +90,12 @@ describe('CartComponent', () => {
   describe('close cart button', () => {
 
     it('should emit the close event', async () => {
-      const { find, inject, fixture, instance } = await shallow.dontMock(OrderByPipe).render();
-      const mockStore = inject(MockStore);
-      mockStore.overrideSelector(selectCartItems, []);
-      mockStore.refreshState();
-      fixture.detectChanges();
+      const { find, inject, fixture, instance } = await shallow.dontMock(OrderByPipe)
+      .provide(provideMockStore({
+        selectors: [
+          { selector: selectCartItems, value: [] }],
+      }))
+      .render();
       find('button')[0].nativeElement.click();
       expect(instance.closeEvent.emit).toHaveBeenCalled();
     })
