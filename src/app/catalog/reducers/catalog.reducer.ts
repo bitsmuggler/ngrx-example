@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import {itemsLoadedSuccess} from "../actions/items-api.actions";
+import {itemsLoadedSuccess} from "../actions/catalog-api.actions";
 import {ItemsFeatureState} from "./catalog.selector";
 
 export const initialState: ItemsFeatureState = {

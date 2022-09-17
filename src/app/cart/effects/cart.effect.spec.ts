@@ -3,9 +3,9 @@ import {CartModule} from "../cart.module";
 import {CartEffect} from "./cart.effect";
 import {provideMockActions} from "@ngrx/effects/testing";
 import {ReplaySubject} from "rxjs";
-import {addToCart} from "../../catalog/actions/items-page.actions";
 import {Item} from "../../catalog/model/catalog.model";
 import {itemAddedSuccess} from "../actions/cart-api.actions";
+import {CatalogPageActions} from "../../catalog/actions/catalog-page.actions";
 
 describe('CartEffects', () => {
   let shallow: Shallow<CartEffect>;
@@ -22,7 +22,7 @@ describe('CartEffects', () => {
       actions = new ReplaySubject<any>(1);
 
       const item = {} as Item;
-      actions.next(addToCart({item}));
+      actions.next(CatalogPageActions.addItemToCart({item}));
 
       const {inject} = shallow.createService();
 

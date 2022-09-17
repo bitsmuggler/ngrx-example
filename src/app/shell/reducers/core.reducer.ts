@@ -1,6 +1,6 @@
 import {createReducer, on} from '@ngrx/store';
-import {openCart} from "../../catalog/actions/items-page.actions";
 import {ShellState} from "../selectors/core.selector";
+import {CatalogPageActions} from "../../catalog/actions/catalog-page.actions";
 
 export const initialState: ShellState = {
   cartOpen: false
@@ -8,7 +8,7 @@ export const initialState: ShellState = {
 
 export const shellReducer = createReducer(
   initialState,
-  on(openCart, () => ({
+  on(CatalogPageActions.openCart, () => ({
     cartOpen: true
   }))
 );

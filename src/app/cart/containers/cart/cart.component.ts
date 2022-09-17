@@ -3,7 +3,7 @@ import {CartFeatureState, selectCartItems, selectCartTotalPrice} from "../../red
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {CartItem} from "../../model/cart-item.model";
-import {increaseItemInCart, reduceItemFromCart, removeFromCart} from "../../actions/cart-page.actions";
+import {CartPageActions} from "../../actions/cart-page.actions";
 
 @Component({
   selector: 'app-cart',
@@ -28,15 +28,15 @@ export class CartComponent {
   }
 
   reduceItem(cartItem: CartItem) {
-    this.store.dispatch(reduceItemFromCart({cartItem}))
+    this.store.dispatch(CartPageActions.reduceNumberOfItemInCart({cartItem}))
   }
 
   removeItem(cartItem: CartItem) {
-    this.store.dispatch(removeFromCart({cartItem}));
+    this.store.dispatch(CartPageActions.removeItemFromCart({cartItem}));
   }
 
   increaseItem(cartItem: CartItem) {
-    this.store.dispatch(increaseItemInCart({cartItem}));
+    this.store.dispatch(CartPageActions.increaseNumberOfItemInCart({cartItem}));
   }
 
   closeCart() {

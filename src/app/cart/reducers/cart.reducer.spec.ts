@@ -1,8 +1,8 @@
 import { cartReducer, initialState } from './cart.reducer';
-import {addToCart} from "../../catalog/actions/items-page.actions";
 import {Item} from "../../catalog/model/catalog.model";
 import {CartItem} from "../model/cart-item.model";
 import {CartFeatureState} from "./cart.selector";
+import {CatalogPageActions} from "../../catalog/actions/catalog-page.actions";
 
 describe('Cart Reducer', () => {
   describe('an unknown action', () => {
@@ -17,7 +17,7 @@ describe('Cart Reducer', () => {
   describe('addToCart',  () => {
     const itemId = 'i-x';
     const item = {id: itemId,  price: 10} as Item;
-    const action = addToCart({item: item});
+    const action = CatalogPageActions.addItemToCart({item: item});
 
     describe('with an empty cart', () => {
       const result = cartReducer(initialState, action);
