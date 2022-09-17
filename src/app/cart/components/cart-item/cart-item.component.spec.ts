@@ -11,7 +11,7 @@ describe('CartItemComponent', () => {
   });
 
   it('should create', async () => {
-    const {fixture} = await shallow.render({bind: {cartItem: {}}});
+    const {fixture} = await shallow.render({bind: {cartItem: {}}, whenStable: false});
     expect(fixture).toBeTruthy();
   });
 

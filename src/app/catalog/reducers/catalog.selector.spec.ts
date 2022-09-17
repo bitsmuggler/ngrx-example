@@ -1,4 +1,4 @@
-import {ItemsFeatureState, selectItems} from "./catalog.selector";
+import { ItemsFeatureState, selectItems } from "./catalog.selector";
 
 describe('Catalog Selectors', () => {
   it('should return items', () => {

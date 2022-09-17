@@ -47,7 +47,8 @@ describe('CartComponent', () => {
       }))
       .render();
 
-      const cartItems = findComponent(CartItemComponent).map(n => n.cartItem)
+      const cartItems = findComponent(CartItemComponent)
+        .map(n => n.cartItem)
         .map(n => n?.item)
         .map(n => n?.name);
 
@@ -90,7 +91,7 @@ describe('CartComponent', () => {
   describe('close cart button', () => {
 
     it('should emit the close event', async () => {
-      const { find, inject, fixture, instance } = await shallow.dontMock(OrderByPipe)
+      const { find, instance } = await shallow.dontMock(OrderByPipe)
       .provide(provideMockStore({
         selectors: [
           { selector: selectCartItems, value: [] }],

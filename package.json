@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage",
-    "test:ci": "ng test --sourceMap=false --browsers=ChromeHeadless --watch=false --code-coverage"
+    "test:ci": "ng test --browsers=ChromeHeadless --watch=false --code-coverage"
   },
   "private": true,
   "dependencies": {
