@@ -17,7 +17,7 @@ From a business perspective, it is a product catalog with a shopping cart. You c
 
 It contains the following technical aspects:
 
-* Using Store, Actions, Selectors, Reducers, and Effects in an Angular application.
+* Using Store, Actions / ActionGroups, Selectors, Reducers, and Effects in an Angular application.
 * Introduction of feature stores.
 * Sample tests for these [NgRx](https://ngrx.io/) elements.
 
