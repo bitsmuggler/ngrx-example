@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {provideMockStore} from "@ngrx/store/testing";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatLegacySnackBarModule as MatSnackBarModule} from "@angular/material/legacy-snack-bar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {BrowserModule} from "@angular/platform-browser";

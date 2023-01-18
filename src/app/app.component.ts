@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {selectNumberOfCartItems, ShellState} from "./shell/selectors/core.selector";
 import {Observable, Subscription} from "rxjs";
 import {DeviceDetectorService} from "ngx-device-detector";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatLegacySnackBar as MatSnackBar} from "@angular/material/legacy-snack-bar";
 import {MatSidenav} from "@angular/material/sidenav";
 import {Item} from "./catalog/model/catalog.model";
 
