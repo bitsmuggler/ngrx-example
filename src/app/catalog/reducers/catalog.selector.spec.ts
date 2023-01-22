@@ -12,11 +12,9 @@ describe('Catalog Selectors', () => {
       }
     ];
     const state = {
-      itemsFeature: {
-        items
-      } as ItemsFeatureState
-    }
+      items: items
+    } as ItemsFeatureState;
 
-    expect(selectItems.projector(state.itemsFeature)).toBe(items);
+    expect(selectItems.projector(state)).toBe(state.items);
   });
 });
