@@ -6,14 +6,14 @@ import {CatalogEffect} from "./effects/catalog.effect";
 import {StoreModule} from "@ngrx/store";
 import {catalogReducer} from "./reducers/catalog.reducer";
 import {HttpClientModule} from "@angular/common/http";
-import {MatLegacyListModule as MatListModule} from "@angular/material/legacy-list";
+import {MatListModule} from "@angular/material/list";
 import {BrowserModule} from "@angular/platform-browser";
-import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
+import {MatButtonModule} from "@angular/material/button";
 import { ItemComponent } from './components/item/item.component';
-import {MatLegacyCardModule as MatCardModule} from "@angular/material/legacy-card";
+import {MatCardModule} from "@angular/material/card";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
-import {MatLegacySnackBarModule as MatSnackBarModule} from "@angular/material/legacy-snack-bar";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [

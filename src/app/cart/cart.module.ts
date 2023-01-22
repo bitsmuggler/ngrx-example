@@ -4,13 +4,13 @@ import {CartComponent} from './containers/cart/cart.component';
 import {CartItemComponent} from './components/cart-item/cart-item.component';
 import {StoreModule} from "@ngrx/store";
 import {cartReducer} from "./reducers/cart.reducer";
-import {MatLegacyInputModule as MatInputModule} from "@angular/material/legacy-input";
+import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
+import {MatButtonModule} from "@angular/material/button";
 import {NgPipesModule} from "ngx-pipes";
 import {EffectsModule} from "@ngrx/effects";
 import {CartEffect} from "./effects/cart.effect";
-import {MatLegacyCardModule as MatCardModule} from "@angular/material/legacy-card";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [

@@ -17,6 +17,6 @@ describe('Catalog Selectors', () => {
       } as ItemsFeatureState
     }
 
-    expect(selectItems.projector(state)).toBe(items);
+    expect(selectItems.projector(state.itemsFeature)).toBe(items);
   });
 });

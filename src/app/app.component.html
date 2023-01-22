@@ -1,12 +1,13 @@
 <a mat-raised-button href="https://www.workingsoftware.dev/what-is-ngrx-and-why-is-it-used-in-angular/" rel="noopener" target="_blank">{{infoText}}<mat-icon>open_in_new</mat-icon></a>
-<mat-sidenav-container class="container" autosize>
-  <mat-sidenav #sidenav fixedTopGap="50" fixedBottomGap="" fixedInViewport="true" [opened]="false" [mode]="deviceDetector.isMobile() ? 'over': 'side'">
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #sidenav fixedTopGap="50" fixedBottomGap="" fixedInViewport="true" [opened]="false" [mode]="'over'">
     <app-cart (closeEvent)="sidenav.close()"></app-cart>
-  </mat-sidenav>
-  <mat-sidenav-container class="sidenav-content">
-    <button mat-raised-button [matBadge]="(numberOfCartItems$ | async)" matBadgePosition="after" matBadgeColor="accent" (click)="sidenav.opened ? sidenav.close() : sidenav.open()">
+  </mat-drawer>
+  <mat-drawer-content>
+    <button mat-raised-button [matBadge]="(numberOfCartItems$ | async)" (click)="sidenav.opened ? sidenav.close() : sidenav.open()">
       {{sidenav.opened ? 'Close' : 'Open'}} Cart
-    <mat-icon>shopping_cart</mat-icon></button>
-    <app-item-list (itemAddedEvent)="onItemAdded($event, sidenav)"></app-item-list>
-  </mat-sidenav-container>
-</mat-sidenav-container>
+      <mat-icon>shopping_cart</mat-icon>
+    </button> 
+    <app-item-list></app-item-list>
+  </mat-drawer-content>
+</mat-drawer-container>
