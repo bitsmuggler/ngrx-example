@@ -111,6 +111,9 @@
     "schematicCollections": [
       "@ngrx/schematics"
     ],
-    "analytics": false
+    "analytics": false,
+    "cache": {
+      "enabled": false
+    }
   }
 }
