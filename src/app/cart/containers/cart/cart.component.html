@@ -1,11 +1,15 @@
-<ng-container *ngIf=" cartItems$ | async as items">
-  <button mat-flat-button (click)="closeCart()"><mat-icon>close</mat-icon></button>
+<ng-container *ngIf="cartItems$ | async as items">
+  <button mat-flat-button (click)="closeCart()">
+    <mat-icon>close</mat-icon>
+  </button>
   <h1>My cart 🛒</h1>
   <span *ngIf="items.length === 0">Empty cart 🕵🏻</span>
-  <p *ngIf="items.length > 0">Total: {{(totalPrice$ | async) | currency}}</p>
-  <app-cart-item *ngFor="let item of items | orderBy:'item.name'" [cartItem]="item"
-                 (reduceItemInCartEvent)="reduceItem(item)"
-                 (removeItemInCartEvent)="removeItem(item)"
-                 (increaseItemInCartEvent)="increaseItem(item)">
+  <p *ngIf="items.length > 0">Total: {{ totalPrice$ | async | currency }}</p>
+  <app-cart-item *ngFor="let item of items | orderBy : 'item.name'"
+    [cartItem]="item"
+    (reduceItemInCartEvent)="reduceItem(item)"
+    (removeItemInCartEvent)="removeItem(item)"
+    (increaseItemInCartEvent)="increaseItem(item)"
+  >
   </app-cart-item>
 </ng-container>
